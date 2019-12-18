@@ -1,2 +1,2 @@
 # snowFallCanvas
- JavaScript Schneeeffekt auf einem Canvas. Keine DOM Manipulation.
+ JavaScript Schneeeffekt auf einem Canvas. Keine Manipulation von Divs.
