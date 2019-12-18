@@ -7,7 +7,7 @@ let width,height;
 width = canvas.width = window.innerWidth;
 height = canvas.height = window.innerHeight;
 
-       snowCheck.onclick = function() {
+ snowCheck.onclick = function() {
             if ( this.checked ) {
                 stopSnow();
             } else {
@@ -20,12 +20,12 @@ height = canvas.height = window.innerHeight;
             particlesArray.splice(0, particlesArray.length);
         }
 
-// Zufällige Zahl in Abhängigkeit von der Breite des Fensters generieren
+        // Zufällige Zahl in Abhängigkeit von der Breite des Fensters generieren
         function random(min, max) {
             return min + Math.random() * (max - min + 1);
         }
 
-// Veränderung der Gräße des Fensters => neue Höhe und Breite berechnen
+        // Veränderung der Gräße des Fensters => neue Höhe und Breite berechnen
         function clientResize(e){
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
@@ -47,7 +47,7 @@ height = canvas.height = window.innerHeight;
                     opacity: Math.random(),
                     speedX: random(-5, 5), // Bewegung in X-Richtung
                     speedY: random(2, 5), // Bewegung in Y-Richtung
-                    radius:random(0.5, 4.2),
+                    radius:random(0.5, 4.2) // Zufällige Größe der Schneeflocken
                 })
             }
         }
@@ -65,10 +65,8 @@ height = canvas.height = window.innerHeight;
                     particlesArray[i].radius
                 );
 
-                // Füge der Schneeflocke einen Verlauf hinzu
-                gradient.addColorStop(0, 'rgba(255, 255, 255,' + particlesArray[i].opacity + ')');  // white
-                gradient.addColorStop(.8, 'rgba(210, 236, 242,' + particlesArray[i].opacity + ')');  // bluish
-                gradient.addColorStop(1, 'rgba(237, 247, 249,' + particlesArray[i].opacity + ')');   // lighter bluish
+                // Füge der Schneeflocke eine Farbe hinzu
+                gradient.addColorStop(0, 'rgba(255, 255, 255,' + particlesArray[i].opacity + ')');
 
                 ctx.beginPath();
                 // Die eigentliche Schneeflocke (Kreis) erzeugen
