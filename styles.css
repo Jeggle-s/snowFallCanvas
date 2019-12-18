@@ -6,7 +6,7 @@ body {
     background-color: black;
 }
 
-.snow-canvas {
+#snow-canvas {
     z-index: 2;
 }
 
