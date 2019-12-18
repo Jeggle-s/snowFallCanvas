@@ -7,7 +7,7 @@ let width,height;
 width = canvas.width = window.innerWidth;
 height = canvas.height = window.innerHeight;
 
-        snowCheck.onclick = function() {
+       snowCheck.onclick = function() {
             if ( this.checked ) {
                 stopSnow();
             } else {
@@ -29,6 +29,10 @@ height = canvas.height = window.innerHeight;
         function clientResize(e){
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
+
+            if(width < 1000) {
+                stopSnow();
+            }
         }
 
         window.addEventListener("resize", clientResize);
@@ -50,7 +54,8 @@ height = canvas.height = window.innerHeight;
 
         function drawSnowFlakes(){
             for(let i = 0; i < particlesArray.length; i++){
-                // Schneeflocke rendern mit den generierten Werten aus createSnowFlakes()
+                // Schneeflocke x und y position geben
+                // https://www.w3schools.com/tags/canvas_addcolorstop.asp
                 let gradient = ctx.createRadialGradient(
                     particlesArray[i].x,
                     particlesArray[i].y,
@@ -60,13 +65,14 @@ height = canvas.height = window.innerHeight;
                     particlesArray[i].radius
                 );
 
-                // Füge der Schneeflocke eine Position, einen Farbwert und die zufällige opacity hinzu
+                // Füge der Schneeflocke einen Verlauf hinzu
                 gradient.addColorStop(0, 'rgba(255, 255, 255,' + particlesArray[i].opacity + ')');  // white
                 gradient.addColorStop(.8, 'rgba(210, 236, 242,' + particlesArray[i].opacity + ')');  // bluish
                 gradient.addColorStop(1, 'rgba(237, 247, 249,' + particlesArray[i].opacity + ')');   // lighter bluish
 
                 ctx.beginPath();
                 // Die eigentliche Schneeflocke (Kreis) erzeugen
+                // https://www.w3schools.com/tags/canvas_arc.asp
                 ctx.arc(
                     particlesArray[i].x,
                     particlesArray[i].y,
