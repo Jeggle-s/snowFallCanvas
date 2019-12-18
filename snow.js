@@ -54,7 +54,7 @@ height = canvas.height = window.innerHeight;
 
         function drawSnowFlakes(){
             for(let i = 0; i < particlesArray.length; i++){
-                // Schneeflocke x und y position geben
+                // Schneeflocke einen Verlauf geben
                 // https://www.w3schools.com/tags/canvas_addcolorstop.asp
                 let gradient = ctx.createRadialGradient(
                     particlesArray[i].x,
